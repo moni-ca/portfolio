@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monica Guerrero, Product Designer</title>
+<meta name="description" content="Monica Guerrero is a product designer who makes ideas tangible so teams can move forward together, across telecom, fintech, and commerce.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23F4B8C7' stroke='%235B1A2C' stroke-width='2.5'/%3E%3C/svg%3E">
+<meta property="og:title" content="Monica Guerrero, Product Designer">
+<meta property="og:description" content="I make ideas tangible, so teams can move forward together. Selected work from Spectrum.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#EFE6E0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ Tokens ============ */
+:root{
+  --oyster:#EFE6E0;      /* page */
+  --oyster-deep:#E5D8CF; /* quiet fills */
+  --champagne:#E3CFBB;   /* placeholder fill */
+  --petal:#F4B8C7;       /* the bubble */
+  --bordeaux:#5B1A2C;    /* ink: all text is wine, never black */
+  --rose-ink:#84384C;    /* secondary text */
+  --plum:#2C111A;        /* inverted sections */
+
+  --display:"Fraunces", Georgia, serif;
+  --sans:"Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* type scale, ~perfect fourth */
+  --t-xs:.8125rem; --t-s:.9375rem; --t-m:1.125rem; --t-l:1.5rem;
+  --t-xl:2.25rem; --t-2xl:clamp(2.5rem,5vw,4rem); --t-hero:clamp(2.9rem,7.6vw,7.25rem);
+
+  --gutter:clamp(1.25rem,4vw,3.5rem);
+  --max:90rem;
+  --r-small:999px;   /* chips, buttons: pills */
+  --r-media:2rem;    /* case imagery */
+  --ease-pop:cubic-bezier(.34,1.56,.64,1);
+  --ease-out:cubic-bezier(.22,1,.36,1);
+}
+
+/* ============ Base ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--oyster);color:var(--bordeaux);font:400 var(--t-m)/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;letter-spacing:-.01em}
+h1,h2,h3,.wordmark,.case__stat span,.about__lede,.principles dt,.about__signoff,.email{font-variation-settings:"SOFT" 100;font-optical-sizing:auto}
+p{margin:0}
+::selection{background:var(--petal);color:var(--plum)}
+:focus-visible{outline:2px solid var(--bordeaux);outline-offset:4px;border-radius:4px}
+.inverse :focus-visible{outline-color:var(--petal)}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:var(--gutter);top:-4rem;background:var(--bordeaux);color:var(--oyster);padding:.6rem 1rem;border-radius:var(--r-small);z-index:20;text-decoration:none}
+.skip:focus{top:1rem}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ============ Components ============ */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font:500 var(--t-s)/1 var(--sans);padding:1rem 1.5rem;border-radius:var(--r-small);text-decoration:none;border:1.5px solid var(--bordeaux);background:transparent;color:var(--bordeaux);cursor:pointer;transition:background .25s,color .25s,transform .35s var(--ease-pop)}
+.btn:hover{background:var(--bordeaux);color:var(--oyster)}
+.btn:active{transform:scale(.96)}
+.btn--solid{background:var(--bordeaux);color:var(--oyster)}
+.btn--solid:hover{background:var(--plum)}
+.btn .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--petal);transition:transform .35s var(--ease-pop)}
+.btn:hover .dot{transform:scale(1.6)}
+
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0}
+.chip{font-size:var(--t-xs);line-height:1;padding:.5rem .8rem;border-radius:var(--r-small);background:var(--oyster-deep);color:var(--bordeaux)}
+
+.placeholder{position:relative;overflow:hidden;background:var(--champagne)}
+.placeholder__note{position:absolute;left:1.25rem;bottom:1.1rem;font-size:var(--t-xs);color:var(--rose-ink);background:color-mix(in srgb,var(--oyster) 85%,transparent);padding:.4rem .7rem;border-radius:var(--r-small)}
+.placeholder__form{position:absolute;border-radius:50%;background:var(--petal);transition:transform .9s var(--ease-out)}
+
+.todo{border-bottom:1.5px dashed currentColor;opacity:.8}
+
+/* ============ Header ============ */
+.site-header{display:flex;justify-content:space-between;align-items:center;padding-block:1.5rem}
+.wordmark{font:500 var(--t-m)/1 var(--display);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+.wordmark__bubble{width:.7rem;height:.7rem;border-radius:50%;background:var(--petal);box-shadow:inset 0 0 0 1.5px var(--bordeaux);transition:transform .45s var(--ease-pop)}
+.wordmark:hover .wordmark__bubble{transform:translateY(-.35rem) scale(1.3)}
+.nav{display:flex;gap:clamp(1rem,3vw,2.25rem);list-style:none;margin:0;padding:0;font-size:var(--t-s)}
+.nav a{text-decoration:none;position:relative;padding-block:.25rem}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-out)}
+.nav a:hover::after{transform:scaleX(1)}
+
+/* ============ Hero ============ */
+.hero{position:relative;overflow-x:clip;padding-block:clamp(3rem,9vw,8rem) clamp(4rem,10vw,9rem);isolation:isolate}
+.hero__bubble{position:absolute;z-index:-1;border-radius:50%;background:var(--petal)}
+.hero__bubble--big{width:clamp(15rem,34vw,32rem);aspect-ratio:1;right:calc(var(--gutter) * .5);top:clamp(1rem,4vw,3rem)}
+.hero__bubble--small{width:clamp(3rem,6vw,5.5rem);aspect-ratio:1;right:clamp(14rem,36vw,33rem);top:clamp(14rem,30vw,27rem);background:transparent;border:1.5px solid var(--bordeaux)}
+.hero__title{font-size:var(--t-hero);line-height:.95;letter-spacing:-.035em}
+.hero__title .line{white-space:nowrap}
+.hero__title .line{display:block;overflow:hidden;padding-bottom:.22em;margin-bottom:-.14em}
+.hero__title .line > span{display:inline-block}
+.hero__title .line:nth-child(2){padding-left:clamp(1.5rem,8vw,9rem);font-style:italic}
+.hero__body{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter);margin-top:clamp(2.5rem,6vw,5rem)}
+.hero__intro{grid-column:6 / span 6;font-size:var(--t-l);line-height:1.45;max-width:34ch}
+.hero__actions{grid-column:6 / span 6;display:flex;flex-wrap:wrap;gap:.75rem}
+.hero__meta{grid-column:1 / span 4;grid-row:1 / span 2;align-self:end;font-size:var(--t-s);color:var(--rose-ink);max-width:22ch}
+
+/* ============ Work ============ */
+.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:2rem;padding-top:2rem;border-top:1.5px solid var(--bordeaux);margin-bottom:clamp(3rem,7vw,6rem)}
+.section-head h2{font-size:var(--t-2xl);line-height:1}
+.section-head p{font-size:var(--t-s);color:var(--rose-ink);max-width:28ch;text-align:right}
+
+.work{padding-bottom:clamp(5rem,10vw,10rem)}
+.work__grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:clamp(4rem,9vw,8rem)}
+.case{display:grid;gap:1.25rem;align-content:start}
+.case__media{border-radius:var(--r-media);transition:border-radius .6s var(--ease-out)}
+.case__media .placeholder__form{width:38%;aspect-ratio:1}
+.case:hover .placeholder__form{transform:translate(-12%,8%) scale(1.12)}
+.case__title{font-size:var(--t-xl);line-height:1.05}
+.case__client{font-size:var(--t-s);color:var(--rose-ink);margin-bottom:.35rem}
+.case__focus{max-width:38ch}
+
+/* editorial composition: each case gets its own shape and position */
+.case--shopping{grid-column:1 / span 8}
+.case--shopping .case__media{aspect-ratio:16/10}
+.case--shopping .placeholder__form{right:8%;top:14%}
+
+.case--navi{grid-column:9 / span 4;margin-top:clamp(6rem,16vw,15rem)}
+.case--navi .case__media{aspect-ratio:3/4;border-radius:999px 999px var(--r-media) var(--r-media);background:var(--bordeaux)}
+.case--navi .placeholder__form{width:46%;left:27%;top:12%}
+.case--navi .placeholder__note{color:var(--oyster);background:color-mix(in srgb,var(--plum) 70%,transparent)}
+
+.case--plans{grid-column:2 / span 10;grid-template-columns:repeat(10,1fr);column-gap:var(--gutter);align-items:end}
+.case--plans .case__media{grid-column:1 / span 6;aspect-ratio:4/3;background:var(--oyster-deep)}
+.case--plans .case__text{grid-column:7 / span 4;display:grid;gap:1.25rem;padding-bottom:1rem}
+.case--plans .placeholder__form{border-radius:1.25rem;width:24%;aspect-ratio:3/4;top:18%;background:var(--champagne);box-shadow:0 0 0 1.5px var(--bordeaux)}
+.case--plans .placeholder__form:nth-of-type(1){left:14%}
+.case--plans .placeholder__form:nth-of-type(2){left:38%;top:24%;background:var(--petal)}
+.case--plans .placeholder__form:nth-of-type(3){left:62%;top:30%}
+.case--plans:hover .placeholder__form:nth-of-type(1){transform:rotate(-6deg) translateX(-8%)}
+.case--plans:hover .placeholder__form:nth-of-type(2){transform:translateY(-10%)}
+.case--plans:hover .placeholder__form:nth-of-type(3){transform:rotate(6deg) translateX(8%)}
+
+.case--homepage{grid-column:1 / span 12;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);align-items:center}
+.case--homepage .case__media{grid-column:7 / span 5;grid-row:1;aspect-ratio:1;border-radius:50%;background:var(--petal)}
+.case--homepage .case__text{grid-column:2 / span 4;grid-row:1;display:grid;gap:1.25rem;position:relative;z-index:1}
+.case--homepage .placeholder__form{background:var(--oyster);width:30%;left:35%;top:35%}
+.case--homepage .placeholder__note{left:50%;transform:translateX(-50%);bottom:12%}
+.case--homepage:hover .placeholder__form{transform:translate(40%,-30%) scale(.8)}
+
+
+/* real imagery */
+.case__media--shot{position:relative;overflow:hidden;background:var(--champagne);display:grid;place-items:center;padding:clamp(1.25rem,4%,3rem)}
+.case__media--shot img{position:relative;width:100%;height:auto;border-radius:.6rem;box-shadow:0 1px 0 rgba(91,26,44,.08),0 24px 48px -28px rgba(44,17,26,.45);transition:transform .9s var(--ease-out)}
+.case:hover .case__media--shot img{transform:translateY(-1.5%) scale(1.015)}
+.case--shopping .case__media--shot{aspect-ratio:auto}
+.case--shopping .case__media--shot .placeholder__form{position:absolute;right:-6%;top:-14%;width:42%}
+.case__stat{font-size:var(--t-s);color:var(--rose-ink);display:flex;align-items:baseline;gap:.6rem}
+.case__stat span{font:400 var(--t-xl)/1 var(--display);color:var(--bordeaux);letter-spacing:-.02em}
+.about__portrait{position:relative;isolation:isolate}
+.about__portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;border-radius:999px 999px var(--r-media) var(--r-media)}
+.about__bubble{position:absolute;width:30%;aspect-ratio:1;border-radius:50%;background:var(--petal);right:-8%;top:4%;z-index:-1}
+.about__signoff{font:italic 400 var(--t-l)/1.3 var(--display);color:var(--petal);display:flex;align-items:center;gap:.6rem}
+.signoff-bubble{width:.8rem;height:.8rem;border-radius:50%;background:var(--petal);display:inline-block;transition:transform .5s var(--ease-pop)}
+.about__signoff:hover .signoff-bubble{transform:translateY(-.4rem) scale(1.4)}
+
+.case--plans .case__media--shot{background:#E5D8CF;aspect-ratio:auto;padding:clamp(1.5rem,5%,3rem)}
+.case--plans .case__media--shot img{box-shadow:none;border-radius:0}
+.case__media--phone{display:grid;place-items:center;overflow:visible}
+.case__media--phone img{position:relative;z-index:1;width:38%;height:auto;border-radius:1.15rem;box-shadow:0 2px 0 rgba(91,26,44,.06),0 40px 70px -28px rgba(44,17,26,.5);transform:rotate(-4deg);transition:transform .7s var(--ease-pop)}
+.case--homepage:hover .case__media--phone img{transform:rotate(0deg) translateY(-2%)}
+.case__access{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .5rem;font-size:var(--t-xs);color:var(--rose-ink)}
+.case__access .lock{width:.95rem;height:.95rem;fill:none;stroke:currentColor;stroke-width:1.5;flex:none}
+.case__access a{color:var(--bordeaux);font-weight:500;text-underline-offset:3px}
+.case__access a:hover{color:var(--plum)}
+.case__media--window{position:relative;overflow:hidden}
+.case__media--window img{position:absolute;left:10%;bottom:9%;width:132%;max-width:none;height:auto;border-radius:1rem;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);transition:transform .9s var(--ease-out)}
+.case--navi:hover .case__media--window img{transform:translateX(-14%)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(6.25rem,1fr));gap:1rem 1.25rem;margin:.25rem 0;padding:1rem 0;border-block:1px solid color-mix(in srgb,var(--bordeaux) 22%,transparent)}
+.stats div{display:flex;flex-direction:column;justify-content:flex-start;gap:.3rem}
+.stats dd{order:-1}
+.case__role{font-size:var(--t-s);color:var(--rose-ink);margin-top:.35rem}
+.stats--two{grid-template-columns:1fr 1fr}
+.case__note{font-size:var(--t-s);color:var(--rose-ink);margin-top:-.4rem}
+.stats dd{margin:0;white-space:nowrap;font:400 clamp(1.6rem,2.3vw,2.25rem)/1 var(--display);font-variation-settings:"SOFT" 100;letter-spacing:-.02em;color:var(--bordeaux)}
+.stats dt{font-size:var(--t-xs);line-height:1.35;color:var(--rose-ink);max-width:16ch}
+.case__media--layered{position:relative;aspect-ratio:auto!important;padding:clamp(2.5rem,5vw,4rem) 0 clamp(3.5rem,7vw,5.5rem);isolation:isolate}
+.layer-bubble{position:absolute;z-index:-2;width:44%;aspect-ratio:1;border-radius:50%;background:var(--petal);right:6%;top:-4%}
+.browser{width:82%;background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 1px 0 rgba(91,26,44,.06),0 40px 70px -40px rgba(44,17,26,.45)}
+.layer-desk{display:block;width:100%;height:auto}
+.layer-phone{position:absolute;right:6%;top:22%;width:20%;height:auto;background:#fff;border-radius:1.15rem;box-shadow:0 2px 0 rgba(91,26,44,.05),0 36px 60px -24px rgba(44,17,26,.5);transition:transform .7s var(--ease-pop)}
+.case--shopping:hover .layer-phone{transform:translateY(-4%) rotate(2deg)}
+/* ============ About ============ */
+.inverse{background:var(--plum);color:var(--oyster)}
+.inverse .section-head{border-color:var(--petal)}
+.inverse .section-head p,.inverse .muted{color:#D9B9C2}
+.about{padding-block:clamp(5rem,10vw,9rem)}
+.about__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter);align-items:start}
+.about__portrait{grid-column:1 / span 4;aspect-ratio:4/5}
+.about__portrait .placeholder__note{color:var(--oyster);background:color-mix(in srgb,var(--plum) 70%,transparent)}
+.about__portrait .placeholder__form{width:40%;aspect-ratio:1;right:-8%;top:-6%}
+.about__text{grid-column:6 / span 7;display:grid;gap:2rem}
+.about__lede{font:400 var(--t-2xl)/1.08 var(--display);letter-spacing:-.02em;max-width:18ch}
+.about__body{max-width:56ch;display:grid;gap:1rem}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem var(--gutter);margin:1rem 0 0;padding-top:2rem;border-top:1px solid #6B3A48}
+.principles dt{font:italic 400 var(--t-l)/1.2 var(--display);color:var(--petal);margin-bottom:.4rem}
+.principles dd{margin:0;font-size:var(--t-s);color:#E6CDD3;max-width:30ch}
+
+/* ============ Contact ============ */
+.contact{background:var(--petal);padding-block:clamp(5rem,11vw,10rem);overflow:hidden;position:relative;isolation:isolate}
+.contact::before{content:"";position:absolute;z-index:-1;width:clamp(18rem,40vw,36rem);aspect-ratio:1;border-radius:50%;background:var(--oyster);left:-8%;bottom:-40%;opacity:.55}
+.contact__title{font-size:clamp(2.75rem,8vw,7.5rem);line-height:.95;letter-spacing:-.035em;max-width:12ch}
+.contact__row{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:clamp(2.5rem,5vw,4rem)}
+.email{font:400 var(--t-l)/1.2 var(--display);text-decoration:none;border-bottom:1.5px solid var(--bordeaux);padding-bottom:.15rem}
+.copy-status{font-size:var(--t-s);min-height:1.5em}
+.email-reveal{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.25rem;margin-top:1.5rem}
+[hidden]{display:none!important}
+.btn--small{padding:.7rem 1.1rem}
+.contact__note{margin-top:1.75rem;font-size:var(--t-s);color:var(--rose-ink)}
+.contact__links{display:flex;gap:1.5rem;list-style:none;padding:0;margin:2.5rem 0 0;font-size:var(--t-s)}
+
+.site-footer{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:2rem;font-size:var(--t-xs);color:var(--rose-ink)}
+
+/* ============ Cursor bubble (fine pointers only) ============ */
+.cursor{position:fixed;left:0;top:0;z-index:50;pointer-events:none;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--petal);mix-blend-mode:multiply;display:grid;place-items:center;opacity:0;transition:width .45s var(--ease-pop),height .45s var(--ease-pop),margin .45s var(--ease-pop),opacity .3s,background .3s}
+.cursor span{font:500 .75rem/1.2 var(--sans);color:var(--plum);text-align:center;opacity:0;transition:opacity .2s;padding:0 .75rem}
+.cursor.is-on{opacity:1}
+.cursor.is-big{width:112px;height:112px;margin:-56px 0 0 -56px;mix-blend-mode:normal}
+.cursor.is-big span{opacity:1;transition-delay:.12s}
+
+/* ============ The one orchestrated moment: page load ============ */
+@media (prefers-reduced-motion:no-preference){
+  .js .hero__title .line > span{transform:translateY(105%);animation:rise 1s var(--ease-out) forwards}
+  .js .hero__title .line:nth-child(2) > span{animation-delay:.12s}
+  .js .hero__title .line:nth-child(3) > span{animation-delay:.24s}
+  .js .hero__title .line:nth-child(4) > span{animation-delay:.36s}
+  .js .hero__bubble--big{transform:scale(0);animation:pop 1.1s var(--ease-pop) .35s forwards}
+  .js .hero__bubble--small{transform:scale(0);animation:pop .9s var(--ease-pop) .7s forwards}
+  @keyframes rise{to{transform:none}}
+  @keyframes pop{to{transform:scale(1)}}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* ============ Responsive ============ */
+@media (max-width:900px){
+  .principles{grid-template-columns:1fr 1fr}
+  .hero__intro,.hero__actions{grid-column:1 / -1}
+  .hero__meta{grid-column:1 / -1;grid-row:auto}
+  .hero__bubble--small{display:none}
+  .case--shopping,.case--navi,.case--plans,.case--homepage{grid-column:1 / -1;margin-top:0}
+  .case--navi{max-width:26rem}
+  .case--plans,.case--homepage{grid-template-columns:1fr}
+  .case--plans .case__media,.case--plans .case__text,.case--homepage .case__media,.case--homepage .case__text{grid-column:1;grid-row:auto}
+  .case--homepage .case__media{max-width:26rem;width:100%}
+  .about__portrait{grid-column:1 / -1;max-width:20rem}
+  .about__text{grid-column:1 / -1}
+  .section-head p{text-align:left}
+}
+@media (max-width:560px){
+  .section-head{flex-direction:column;gap:.75rem}
+  .principles{grid-template-columns:1fr}
+  .hero__intro{font-size:var(--t-m)}
+  .hero__title .line{white-space:normal}
+  .nav{gap:1rem}
+  .hero__bubble--big{right:-20%;top:-1rem;opacity:.9}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap site-header">
+  <a class="wordmark" href="#top" aria-label="Monica Guerrero, home"><span class="wordmark__bubble" aria-hidden="true"></span>Monica Guerrero</a>
+  <nav aria-label="Primary">
+    <ul class="nav">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="wrap hero" id="top" aria-labelledby="hero-title">
+    <div class="hero__bubble hero__bubble--big" aria-hidden="true"></div>
+    <div class="hero__bubble hero__bubble--small" aria-hidden="true"></div>
+    <h1 class="hero__title" id="hero-title">
+      <span class="visually-hidden">I make ideas tangible, so teams can move forward together.</span>
+      <span aria-hidden="true">
+      <span class="line"><span>I make ideas</span></span>
+      <span class="line"><span>tangible, so teams</span></span>
+      <span class="line"><span>can move forward</span></span>
+      <span class="line"><span>together.</span></span>
+      </span>
+    </h1>
+    <div class="hero__body">
+      <p class="hero__intro">I'm Moni, a product designer with 8+ years across telecom, fintech, and commerce. I connect customer needs with business goals, and I use design early to give Product, Engineering, and content partners something real to react to, so we find the right direction together.</p>
+      <div class="hero__actions">
+        <a class="btn btn--solid" href="#work"><span class="dot" aria-hidden="true"></span>See selected work</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+      <p class="hero__meta">An individual contributor who leads through the work: early concepts, fast iteration, and testing to learn what works.</p>
+    </div>
+  </section>
+
+  <section class="wrap work" id="work" aria-labelledby="work-title">
+    <div class="section-head">
+      <h2 id="work-title">Selected work</h2>
+      <p>Four projects from Spectrum, from experience vision to the systems that keep it consistent.</p>
+    </div>
+
+    <div class="work__grid">
+      <article class="case case--shopping" data-cursor="Case study coming soon">
+        <div class="case__media case__media--layered">
+          <span class="layer-bubble" aria-hidden="true"></span>
+          <div class="browser" aria-hidden="false"><img class="layer-desk" src="img/internet-desktop.jpg" width="1440" height="1050" alt="Spectrum Internet hub hero on desktop: When everything just works, with Check availability and Internet plans buttons beside a photo of a mother and daughter on a laptop." loading="lazy" decoding="async"></div>
+          <img class="layer-phone" src="img/internet-mobile.jpg" width="393" height="1088" alt="The same Internet hub hero on mobile." loading="lazy" decoding="async">
+        </div>
+        <div>
+          <p class="case__client">Spectrum</p>
+          <h3 class="case__title">Internet Shopping</h3>
+          <p class="case__role">Design lead, directing the UX design team</p>
+        </div>
+        <p class="case__focus">Helping customers understand the value of Spectrum Internet and find the plan that fits them.</p>
+        <dl class="stats">
+          <div><dt>Internet conversion lift</dt><dd>+50 bps</dd></div>
+          <div><dt>Search ad conversion lift</dt><dd>+7 bps</dd></div>
+          <div><dt>Internet localization attempts</dt><dd>+500 bps</dd></div>
+          <div><dt>Projected added orders a month</dt><dd>733</dd></div>
+        </dl>
+        <ul class="chips" aria-label="Focus areas"><li class="chip">Experience vision</li><li class="chip">Shopping journey</li><li class="chip">Content partnership</li></ul>
+        <p class="case__access"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span>Password-protected case study, coming soon.</span> <a href="#contact">Request access</a></p>
+      </article>
+
+      <article class="case case--navi" data-cursor="Case study coming soon">
+        <div class="case__media case__media--window">
+          <span class="placeholder__form" aria-hidden="true"></span>
+          <img src="img/navi-v2.jpg" width="963" height="573" alt="Savings calculator with Internet, Mobile plan and line selectors, comparing Spectrum Internet plus Mobile at $80 a month with AT&amp;T, T-Mobile and Verizon, and showing year-one savings of $516 to $960." loading="lazy" decoding="async">
+        </div>
+        <div>
+          <p class="case__client">Spectrum</p>
+          <h3 class="case__title">Navi Savings Calculator</h3>
+          <p class="case__role">Design lead, directing the partner agency and aligning stakeholders throughout</p>
+        </div>
+        <p class="case__focus">Bringing an agency-built, interactive savings calculator back into Spectrum's visual design system, so shoppers can compare their own bundle against AT&amp;T, T-Mobile, and Verizon.</p>
+        <dl class="stats stats--two">
+          <div><dt>Plan calculator deal-click rate</dt><dd>+5%</dd></div>
+          <div><dt>Converged calculator deal-click rate (directional)</dt><dd>+8%</dd></div>
+          <div><dt>Shoppers using the plan calculator</dt><dd>+3%</dd></div>
+          <div><dt>Shoppers using the converged calculator</dt><dd>+6%</dd></div>
+        </dl>
+        <p class="case__note">A/B tested on spectrum.com. Next version in progress.</p>
+        <ul class="chips" aria-label="Focus areas"><li class="chip">Creative direction</li><li class="chip">Agency partnership</li><li class="chip">Stakeholder alignment</li></ul>
+        <p class="case__access"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span>Password-protected case study, coming soon.</span> <a href="#contact">Request access</a></p>
+      </article>
+
+      <article class="case case--plans" data-cursor="Case study coming soon">
+        <div class="case__media case__media--shot">
+          <img src="img/plan-cards.jpg" width="1176" height="850" alt="Three Spectrum Internet plan cards for 100, 500 and 1000 Mbps, each showing speed, who it suits, price, offers and included features." loading="lazy" decoding="async">
+        </div>
+        <div class="case__text">
+          <div>
+            <p class="case__client">Spectrum</p>
+            <h3 class="case__title">Plan Cards</h3>
+          <p class="case__role">Design lead, directing the UX design team</p>
+          </div>
+          <p class="case__focus">Learning what people need to choose a plan with confidence, then making Internet, TV, and Mobile cards easier to scan and compare.</p>
+          <dl class="stats">
+            <div><dt>Internet card engagement</dt><dd>18.6%</dd></div>
+            <div><dt>Mobile card engagement</dt><dd>38.7%</dd></div>
+            <div><dt>TV card engagement</dt><dd>37%</dd></div>
+          </dl>
+          <p class="case__note">The most engaged content across the Internet and Mobile refresh.</p>
+          <ul class="chips" aria-label="Focus areas"><li class="chip">User research</li><li class="chip">Information hierarchy</li><li class="chip">Card system</li></ul>
+          <p class="case__access"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span>Password-protected case study, coming soon.</span> <a href="#contact">Request access</a></p>
+        </div>
+      </article>
+
+      <article class="case case--homepage" data-cursor="Case study coming soon">
+        <div class="case__media case__media--phone">
+          <img src="img/homepage-mobile.jpg" width="394" height="812" alt="Spectrum homepage on mobile, headlined Gig speeds for $60 a month, with an address check and shortcuts to Internet and Mobile plans." loading="lazy" decoding="async">
+        </div>
+        <div class="case__text">
+          <div>
+            <p class="case__client">Spectrum</p>
+            <h3 class="case__title">Homepage Optimization</h3>
+          <p class="case__role">Design lead, directing the UX design team</p>
+          </div>
+          <p class="case__focus">Reimagining the Spectrum.com homepage as a welcoming lobby that helps each visitor find their path to Internet, Mobile, or TV.</p>
+          <dl class="stats">
+            <div><dt>Overall conversion lift</dt><dd>+9.7%</dd></div>
+            <div><dt>Returning visitor conversion lift</dt><dd>+15.8%</dd></div>
+            <div><dt>Homepage localization attempts</dt><dd>+126 bps</dd></div>
+          </dl>
+          <ul class="chips" aria-label="Focus areas"><li class="chip">Wayfinding</li><li class="chip">Shopping experience</li></ul>
+          <p class="case__access"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span>Password-protected case study, coming soon.</span> <a href="#contact">Request access</a></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="inverse about" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="about-title">About</h2>
+        <p>How I work, and what I care about.</p>
+      </div>
+      <div class="about__grid">
+        <div class="about__portrait">
+          <img src="img/moni-portrait.jpg" width="720" height="1078" alt="Portrait of Monica Guerrero smiling, chin resting on her hand." loading="lazy" decoding="async">
+          <span class="about__bubble" aria-hidden="true"></span>
+        </div>
+        <div class="about__text">
+          <p class="about__lede">At my core, I love making things and bringing ideas to life.</p>
+          <div class="about__body">
+            <p>I do my best work where creativity, strategy, and collaboration meet. Over 8+ years in telecom, fintech, and commerce, I've learned that the right direction rarely arrives fully formed. It comes from connecting people, perspectives, and ideas, and from making something early enough that everyone can react to it.</p>
+            <p>I've chosen to grow as an individual contributor, and I lead through the work itself. I move projects forward quickly, keep design, product, and partners aligned along the way, and lean on testing to show what's working, then iterate from there.</p>
+          </div>
+          <dl class="principles">
+            <div><dt>Understand the bigger picture</dt><dd>The customer, the business, the technology, and the people behind the work. The best solutions come from connecting them.</dd></div>
+            <div><dt>Learn by making</dt><dd>I explore ideas through design, using the making itself to uncover opportunities and ask better questions.</dd></div>
+            <div><dt>Build on ideas</dt><dd>Creativity is collaborative. I build on different perspectives to find what elevates the work.</dd></div>
+          </dl>
+          <p class="about__signoff">I look forward to the impact we'll create together. <span class="signoff-bubble" aria-hidden="true"></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 class="contact__title" id="contact-title">Let's shape what's next.</h2>
+      <div class="contact__row">
+        <a class="btn btn--solid" href="https://www.linkedin.com/in/monicayguerrero/" rel="noopener"><span class="dot" aria-hidden="true"></span>Message me on LinkedIn</a>
+        <button class="btn" type="button" id="show-email" aria-controls="email-reveal" aria-expanded="false">Show email</button>
+      </div>
+      <div class="email-reveal" id="email-reveal" hidden>
+        <a class="email" id="email" href="#"></a>
+        <button class="btn btn--small" type="button" id="copy-email">Copy</button>
+        <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+      </div>
+      
+    </div>
+  </section>
+</main>
+
+<footer class="wrap site-footer">
+  <p>© 2026 Monica Guerrero</p>
+  <p>Designed and built by Monica Guerrero.</p>
+</footer>
+
+<div class="cursor" aria-hidden="true"><span></span></div>
+
+<script>
+document.documentElement.classList.add('js');
+
+/* Email: assembled on click so it never sits in the page source */
+(function(){
+  const show=document.getElementById('show-email'),box=document.getElementById('email-reveal');
+  const link=document.getElementById('email'),copy=document.getElementById('copy-email'),status=document.getElementById('copy-status');
+  const addr=()=>['myguerrero','89','@','gmail','.','com'].join('');
+  show.addEventListener('click',()=>{
+    const a=addr();link.textContent=a;link.href='mailto:'+a;box.hidden=false;
+    show.setAttribute('aria-expanded','true');show.hidden=true;link.focus();
+  });
+  copy.addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(addr());status.textContent='Copied';}
+    catch(e){status.textContent='Copy failed. Select the address to copy it.';}
+    clearTimeout(copy._t);copy._t=setTimeout(()=>status.textContent='',2600);
+  });
+})();
+
+/* Cursor bubble: fine pointers, motion allowed */
+(function(){
+  const fine=matchMedia('(pointer:fine)').matches;
+  const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!fine||still)return;
+  const c=document.querySelector('.cursor'),label=c.querySelector('span');
+  let x=innerWidth/2,y=innerHeight/2,cx=x,cy=y;
+  addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;c.classList.add('is-on');},{passive:true});
+  document.addEventListener('pointerleave',()=>c.classList.remove('is-on'));
+  document.querySelectorAll('[data-cursor]').forEach(el=>{
+    el.addEventListener('pointerenter',()=>{label.textContent=el.dataset.cursor;c.classList.add('is-big');});
+    el.addEventListener('pointerleave',()=>c.classList.remove('is-big'));
+  });
+  (function loop(){cx+=(x-cx)*.18;cy+=(y-cy)*.18;c.style.transform=`translate3d(${cx}px,${cy}px,0)`;requestAnimationFrame(loop);})();
+})();
+
+/* Hero bubble leans gently toward the pointer */
+(function(){
+  if(!matchMedia('(pointer:fine)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const b=document.querySelector('.hero__bubble--big'),hero=document.querySelector('.hero');
+  b.addEventListener('animationend',()=>{
+    b.style.animation='none';b.style.transform='none';b.style.transition='translate .9s cubic-bezier(.22,1,.36,1)';
+    hero.addEventListener('pointermove',e=>{
+      const r=hero.getBoundingClientRect();
+      const dx=(e.clientX-r.left)/r.width-.5,dy=(e.clientY-r.top)/r.height-.5;
+      b.style.translate=`${dx*28}px ${dy*20}px`;
+    });
+  },{once:true});
+})();
+</script>
+</body>
+</html>
