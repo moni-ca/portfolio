@@ -167,6 +167,16 @@ p{margin:0}
 .case__access .lock{width:.95rem;height:.95rem;fill:none;stroke:currentColor;stroke-width:1.5;flex:none}
 .case__access a{color:var(--bordeaux);font-weight:500;text-underline-offset:3px}
 .case__access a:hover{color:var(--plum)}
+.case__link{text-decoration:none}
+.case--shopping,.case--navi,.case--plans,.case--homepage{position:relative}
+.case--shopping .case__link::after,.case--navi .case__link::after,.case--plans .case__link::after,.case--homepage .case__link::after{content:"";position:absolute;inset:0;z-index:4}
+.case--shopping:hover .case__title,.case--navi:hover .case__title,.case--plans:hover .case__title,.case--homepage:hover .case__title{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.15em}
+.case--shopping .case__read,.case--navi .case__read,.case--plans .case__read,.case--homepage .case__read{position:relative;z-index:5}
+.case--homepage .case__text,.case--plans .case__text{position:static}
+.case__link:hover{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.15em}
+.case__lock{display:inline-flex;align-items:center;gap:.35rem;margin-left:.5rem}
+.case__read{display:inline-flex;align-items:center;gap:.5rem;font-size:var(--t-s)}
+.case__read::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--petal);box-shadow:inset 0 0 0 1.5px var(--bordeaux)}
 .case__media--window{position:relative;overflow:hidden}
 .case__media--window img{position:absolute;left:10%;bottom:9%;width:132%;max-width:none;height:auto;border-radius:1rem;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);transition:transform .9s var(--ease-out)}
 .case--navi:hover .case__media--window img{transform:translateX(-14%)}
@@ -200,6 +210,14 @@ p{margin:0}
 .principles dt{font:italic 400 var(--t-l)/1.2 var(--display);color:var(--petal);margin-bottom:.4rem}
 .principles dd{margin:0;font-size:var(--t-s);color:#E6CDD3;max-width:30ch}
 
+.ai-work{margin-top:1rem;padding:1.5rem;border-radius:1.25rem;background:rgba(244,184,199,.08);border:1px solid rgba(244,184,199,.25);display:grid;gap:.75rem}
+.ai-work h3{font:italic 400 var(--t-l)/1.2 var(--display);color:var(--petal)}
+.ai-work > p{font-size:var(--t-s);color:#E6CDD3;max-width:56ch}
+.ai-tools{list-style:none;margin:.25rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem}
+.ai-tools li{display:inline-flex;align-items:center;gap:.55rem;padding:.4rem .9rem .4rem .4rem;border-radius:999px;background:rgba(239,230,224,.08);border:1px solid rgba(244,184,199,.3);font-size:var(--t-s);color:var(--oyster);transition:transform .35s var(--ease-pop)}
+.ai-tools li:hover{transform:translateY(-2px)}
+.tools-sub{font:400 var(--t-m)/1.2 var(--display);font-style:italic;color:var(--petal);margin:1rem 0 0}
+.ai-mark{width:1.75rem;height:1.75rem;border-radius:50%;background:var(--petal);color:var(--plum);display:grid;place-items:center;font:500 .8rem/1 var(--display);font-variation-settings:"SOFT" 100}
 /* ============ Contact ============ */
 .contact{background:var(--petal);padding-block:clamp(5rem,11vw,10rem);overflow:hidden;position:relative;isolation:isolate}
 .contact::before{content:"";position:absolute;z-index:-1;width:clamp(18rem,40vw,36rem);aspect-ratio:1;border-radius:50%;background:var(--oyster);left:-8%;bottom:-40%;opacity:.55}
@@ -237,6 +255,7 @@ p{margin:0}
   *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
   html{scroll-behavior:auto}
 }
+
 
 /* ============ Responsive ============ */
 @media (max-width:900px){
@@ -281,23 +300,24 @@ p{margin:0}
   <section class="wrap hero" id="top" aria-labelledby="hero-title">
     <div class="hero__bubble hero__bubble--big" aria-hidden="true"></div>
     <div class="hero__bubble hero__bubble--small" aria-hidden="true"></div>
+    <div class="hv" data-v="belief">
     <h1 class="hero__title" id="hero-title">
-      <span class="visually-hidden">I make ideas tangible, so teams can move forward together.</span>
+      <span class="visually-hidden">Progress doesn't wait for a perfect brief.</span>
       <span aria-hidden="true">
-      <span class="line"><span>I make ideas</span></span>
-      <span class="line"><span>tangible, so teams</span></span>
-      <span class="line"><span>can move forward</span></span>
-      <span class="line"><span>together.</span></span>
+      <span class="line"><span>Progress doesn't</span></span>
+      <span class="line"><span>wait for a</span></span>
+      <span class="line"><span>perfect brief.</span></span>
       </span>
     </h1>
     <div class="hero__body">
-      <p class="hero__intro">I'm Moni, a product designer with 8+ years across telecom, fintech, and commerce. I connect customer needs with business goals, and I use design early to give Product, Engineering, and content partners something real to react to, so we find the right direction together.</p>
+      <p class="hero__intro">I'm Moni, a product designer with 8+ years of experience across telecom, fintech, and commerce. I uncover opportunities and shape product direction through design, bringing people together to create experiences that drive customer and business growth.</p>
       <div class="hero__actions">
         <a class="btn btn--solid" href="#work"><span class="dot" aria-hidden="true"></span>See selected work</a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
-      <p class="hero__meta">An individual contributor who leads through the work: early concepts, fast iteration, and testing to learn what works.</p>
     </div>
+  </div>
+  
   </section>
 
   <section class="wrap work" id="work" aria-labelledby="work-title">
@@ -307,7 +327,7 @@ p{margin:0}
     </div>
 
     <div class="work__grid">
-      <article class="case case--shopping" data-cursor="Case study coming soon">
+      <article class="case case--shopping" data-cursor="Read the case study">
         <div class="case__media case__media--layered">
           <span class="layer-bubble" aria-hidden="true"></span>
           <div class="browser" aria-hidden="false"><img class="layer-desk" src="img/internet-desktop.jpg" width="1440" height="1050" alt="Spectrum Internet hub hero on desktop: When everything just works, with Check availability and Internet plans buttons beside a photo of a mother and daughter on a laptop." loading="lazy" decoding="async"></div>
@@ -315,7 +335,7 @@ p{margin:0}
         </div>
         <div>
           <p class="case__client">Spectrum</p>
-          <h3 class="case__title">Internet Shopping</h3>
+          <h3 class="case__title"><a class="case__link" href="work/internet-shopping.html">Internet Shopping</a></h3>
           <p class="case__role">Design lead, directing the UX design team</p>
         </div>
         <p class="case__focus">Helping customers understand the value of Spectrum Internet and find the plan that fits them.</p>
@@ -326,17 +346,17 @@ p{margin:0}
           <div><dt>Projected added orders a month</dt><dd>733</dd></div>
         </dl>
         <ul class="chips" aria-label="Focus areas"><li class="chip">Experience vision</li><li class="chip">Shopping journey</li><li class="chip">Content partnership</li></ul>
-        <p class="case__access"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span>Password-protected case study, coming soon.</span> <a href="#contact">Request access</a></p>
+        <p class="case__access"><a class="case__read" href="work/internet-shopping.html">Read the case study</a><span class="case__lock"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>Password protected</span></p>
       </article>
 
-      <article class="case case--navi" data-cursor="Case study coming soon">
+      <article class="case case--navi" data-cursor="Read the case study">
         <div class="case__media case__media--window">
           <span class="placeholder__form" aria-hidden="true"></span>
           <img src="img/navi-v2.jpg" width="963" height="573" alt="Savings calculator with Internet, Mobile plan and line selectors, comparing Spectrum Internet plus Mobile at $80 a month with AT&amp;T, T-Mobile and Verizon, and showing year-one savings of $516 to $960." loading="lazy" decoding="async">
         </div>
         <div>
           <p class="case__client">Spectrum</p>
-          <h3 class="case__title">Navi Savings Calculator</h3>
+          <h3 class="case__title"><a class="case__link" href="work/navi.html">Navi Savings Calculator</a></h3>
           <p class="case__role">Design lead, directing the partner agency and aligning stakeholders throughout</p>
         </div>
         <p class="case__focus">Bringing an agency-built, interactive savings calculator back into Spectrum's visual design system, so shoppers can compare their own bundle against AT&amp;T, T-Mobile, and Verizon.</p>
@@ -348,17 +368,17 @@ p{margin:0}
         </dl>
         <p class="case__note">A/B tested on spectrum.com. Next version in progress.</p>
         <ul class="chips" aria-label="Focus areas"><li class="chip">Creative direction</li><li class="chip">Agency partnership</li><li class="chip">Stakeholder alignment</li></ul>
-        <p class="case__access"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span>Password-protected case study, coming soon.</span> <a href="#contact">Request access</a></p>
+        <p class="case__access"><a class="case__read" href="work/navi.html">Read the case study</a><span class="case__lock"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>Password protected</span></p>
       </article>
 
-      <article class="case case--plans" data-cursor="Case study coming soon">
+      <article class="case case--plans" data-cursor="Read the case study">
         <div class="case__media case__media--shot">
           <img src="img/plan-cards.jpg" width="1176" height="850" alt="Three Spectrum Internet plan cards for 100, 500 and 1000 Mbps, each showing speed, who it suits, price, offers and included features." loading="lazy" decoding="async">
         </div>
         <div class="case__text">
           <div>
             <p class="case__client">Spectrum</p>
-            <h3 class="case__title">Plan Cards</h3>
+            <h3 class="case__title"><a class="case__link" href="work/plan-cards.html">Plan Cards</a></h3>
           <p class="case__role">Design lead, directing the UX design team</p>
           </div>
           <p class="case__focus">Learning what people need to choose a plan with confidence, then making Internet, TV, and Mobile cards easier to scan and compare.</p>
@@ -369,18 +389,18 @@ p{margin:0}
           </dl>
           <p class="case__note">The most engaged content across the Internet and Mobile refresh.</p>
           <ul class="chips" aria-label="Focus areas"><li class="chip">User research</li><li class="chip">Information hierarchy</li><li class="chip">Card system</li></ul>
-          <p class="case__access"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span>Password-protected case study, coming soon.</span> <a href="#contact">Request access</a></p>
+          <p class="case__access"><a class="case__read" href="work/plan-cards.html">Read the case study</a><span class="case__lock"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>Password protected</span></p>
         </div>
       </article>
 
-      <article class="case case--homepage" data-cursor="Case study coming soon">
+      <article class="case case--homepage" data-cursor="Read the case study">
         <div class="case__media case__media--phone">
           <img src="img/homepage-mobile.jpg" width="394" height="812" alt="Spectrum homepage on mobile, headlined Gig speeds for $60 a month, with an address check and shortcuts to Internet and Mobile plans." loading="lazy" decoding="async">
         </div>
         <div class="case__text">
           <div>
             <p class="case__client">Spectrum</p>
-            <h3 class="case__title">Homepage Optimization</h3>
+            <h3 class="case__title"><a class="case__link" href="work/homepage.html">Homepage Optimization</a></h3>
           <p class="case__role">Design lead, directing the UX design team</p>
           </div>
           <p class="case__focus">Reimagining the Spectrum.com homepage as a welcoming lobby that helps each visitor find their path to Internet, Mobile, or TV.</p>
@@ -390,7 +410,7 @@ p{margin:0}
             <div><dt>Homepage localization attempts</dt><dd>+126 bps</dd></div>
           </dl>
           <ul class="chips" aria-label="Focus areas"><li class="chip">Wayfinding</li><li class="chip">Shopping experience</li></ul>
-          <p class="case__access"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg><span>Password-protected case study, coming soon.</span> <a href="#contact">Request access</a></p>
+          <p class="case__access"><a class="case__read" href="work/homepage.html">Read the case study</a><span class="case__lock"><svg class="lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="7.5" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>Password protected</span></p>
         </div>
       </article>
     </div>
@@ -418,6 +438,30 @@ p{margin:0}
             <div><dt>Learn by making</dt><dd>I explore ideas through design, using the making itself to uncover opportunities and ask better questions.</dd></div>
             <div><dt>Build on ideas</dt><dd>Creativity is collaborative. I build on different perspectives to find what elevates the work.</dd></div>
           </dl>
+          <div class="ai-work">
+            <h3>How I work with AI</h3>
+            <p>AI is part of how I move fast. I use it to get to tangible ideas sooner, then apply judgment to what's worth keeping.</p>
+            <ul class="ai-tools" aria-label="AI tools I use">
+              <li><span class="ai-mark" aria-hidden="true">F</span>Figma AI</li>
+              <li><span class="ai-mark" aria-hidden="true">K</span>Kiro</li>
+              <li><span class="ai-mark" aria-hidden="true">C</span>ChatGPT</li>
+              <li><span class="ai-mark" aria-hidden="true">C</span>Claude</li>
+            </ul>
+            <h4 class="tools-sub">Everyday tools</h4>
+            <ul class="ai-tools" aria-label="Everyday tools I use">
+              <li><span class="ai-mark" aria-hidden="true">F</span>Figma</li>
+              <li><span class="ai-mark" aria-hidden="true">A</span>Adobe Creative Cloud</li>
+              <li><span class="ai-mark" aria-hidden="true">J</span>Jira</li>
+              <li><span class="ai-mark" aria-hidden="true">C</span>Confluence</li>
+              <li><span class="ai-mark" aria-hidden="true">M</span>Monday</li>
+              <li><span class="ai-mark" aria-hidden="true">N</span>Notion</li>
+              <li><span class="ai-mark" aria-hidden="true">A</span>Adobe Analytics</li>
+              <li><span class="ai-mark" aria-hidden="true">G</span>Google Analytics</li>
+              <li><span class="ai-mark" aria-hidden="true">S</span>Slack</li>
+              <li><span class="ai-mark" aria-hidden="true">M</span>Microsoft Teams</li>
+              <li><span class="ai-mark" aria-hidden="true">G</span>Google Workspace</li>
+            </ul>
+          </div>
           <p class="about__signoff">I look forward to the impact we'll create together. <span class="signoff-bubble" aria-hidden="true"></span></p>
         </div>
       </div>
@@ -429,7 +473,7 @@ p{margin:0}
       <h2 class="contact__title" id="contact-title">Let's shape what's next.</h2>
       <div class="contact__row">
         <a class="btn btn--solid" href="https://www.linkedin.com/in/monicayguerrero/" rel="noopener"><span class="dot" aria-hidden="true"></span>Message me on LinkedIn</a>
-        <button class="btn" type="button" id="show-email" aria-controls="email-reveal" aria-expanded="false">Show email</button>
+        <a class="btn" href="#contact" id="show-email">Email me</a>
       </div>
       <div class="email-reveal" id="email-reveal" hidden>
         <a class="email" id="email" href="#"></a>
@@ -446,6 +490,8 @@ p{margin:0}
   <p>Designed and built by Monica Guerrero.</p>
 </footer>
 
+
+
 <div class="cursor" aria-hidden="true"><span></span></div>
 
 <script>
@@ -453,12 +499,13 @@ document.documentElement.classList.add('js');
 
 /* Email: assembled on click so it never sits in the page source */
 (function(){
-  const show=document.getElementById('show-email'),box=document.getElementById('email-reveal');
+  const btn=document.getElementById('show-email'),box=document.getElementById('email-reveal');
   const link=document.getElementById('email'),copy=document.getElementById('copy-email'),status=document.getElementById('copy-status');
   const addr=()=>['myguerrero','89','@','gmail','.','com'].join('');
-  show.addEventListener('click',()=>{
-    const a=addr();link.textContent=a;link.href='mailto:'+a;box.hidden=false;
-    show.setAttribute('aria-expanded','true');show.hidden=true;link.focus();
+  btn.addEventListener('click',e=>{
+    const a=addr();
+    btn.href='mailto:'+a;            // opens the visitor's email app with Monica as recipient
+    link.textContent=a;link.href='mailto:'+a;box.hidden=false; // fallback if no email app is set up
   });
   copy.addEventListener('click',async()=>{
     try{await navigator.clipboard.writeText(addr());status.textContent='Copied';}
